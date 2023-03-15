@@ -52,7 +52,7 @@ export default function Todos() {
                   >
                     <CheckCircleIcon
                       onClick={() => console.log('clicked')}
-                      className="h-5 w-5 text-gray-500 group-hover:text-indigo-600" aria-hidden="true" />
+                      className="h-5 w-5 text-gray-500 group-hover:text-cyan-600" aria-hidden="true" />
                   </span>
                 </div>
                 <div className="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
@@ -78,11 +78,11 @@ export default function Todos() {
               >
                 <PlusIcon
                   onClick={() => console.log('clicked')}
-                  className="h-5 w-5 text-gray-500 group-hover:text-indigo-600" aria-hidden="true" />
+                  className="h-5 w-5 text-gray-500 group-hover:text-cyan-600" aria-hidden="true" />
               </span>
               <div className="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
                 <div>
-                  <p className="text-sm text-gray-900 group-hover:text-indigo-600" style={{ marginRight: '100px' }}>
+                  <p className="text-sm text-gray-900 group-hover:text-cyan-600" style={{ marginRight: '100px' }}>
                     Add Task
                   </p>
                 </div>
