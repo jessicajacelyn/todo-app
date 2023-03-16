@@ -11,7 +11,7 @@ const timeline = [
   },
   {
     id: 2,
-    content: 'Eat steak',
+    content: 'Eat gud steak ~',
     date: 'Tomorrow',
     datetime: '2023-03-16',
     completed: false,
@@ -57,7 +57,7 @@ export default function Todos() {
                 </div>
                 <div className="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
                   <div>
-                    <p className="text-sm text-gray-900" style={{ marginRight: '100px' }}>
+                    <p className="text-sm text-gray-900" style={{ marginRight: '500px' }}>
                       {event.content}{' '}
                     </p>
                   </div>

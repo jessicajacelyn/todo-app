@@ -8,7 +8,7 @@ const navigation = [
   { name: 'Bread', href: '#' },
 ]
 
-export default function Example() {
+export default function EditTaskModal() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
