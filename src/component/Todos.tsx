@@ -2,44 +2,7 @@ import { CheckCircleIcon, HandThumbUpIcon, UserIcon, PlusIcon } from '@heroicons
 import { useAppSelector, useAppDispatch } from '../app/hooks';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addTodo, deleteTodo } from '../component/todoSlice';
-const timeline = [
-  {
-    id: 1,
-    content: 'Buy Chicha yummzz',
-    date: 'Today',
-    datetime: '2023-03-15',
-    completed: false,
-  },
-  {
-    id: 2,
-    content: 'Eat gud steak ~',
-    date: 'Tomorrow',
-    datetime: '2023-03-16',
-    completed: false,
-  },
-  {
-    id: 3,
-    content: 'Assignmenttttt :\'))))',
-    date: 'Tomorrow',
-    datetime: '2023-03-16',
-    completed: false,
-  },
-  {
-    id: 4,
-    content: 'Go skai!!!! >.<',
-    date: 'Dec 06',
-    datetime: '2023-12-06',
-    completed: false,
-  },
-
-]
-type props = {
-  todo: Todo
-  removeTodo: (id: number) => void
-}
-
-
+import { addTodo, deleteTodo, selectTodos } from '../component/todoSlice';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -47,12 +10,12 @@ function classNames(...classes) {
 
 export default function Todos() {
   const dispatch = useAppDispatch();
-  const todos = useAppSelector((state) => state.todo);
+  const todos = useAppSelector(selectTodos);
 
   return (
     <div className="flow-root">
       <ul role="list" className="divide-y divide-gray-200">
-        {todos.todos.map((event, eventIdx) => (
+        {todos.map((event, eventIdx) => (
           <li className="py-4" key={event.id}>
             <div className="relative">
               <div className="relative flex space-x-3 group">
@@ -92,7 +55,7 @@ export default function Todos() {
                   className="h-5 w-5 text-gray-500 group-hover:text-cyan-600" aria-hidden="true" />
               </span>
               <div className="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
-                <div>
+                <div onClick={() => dispatch(addTodo())}>
                   <p className="text-sm text-gray-900 group-hover:text-cyan-600" style={{ marginRight: '100px' }}>
                     Add Task
                   </p>

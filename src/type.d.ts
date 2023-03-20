@@ -5,9 +5,9 @@ interface Todo {
   completed: boolean
 }
 
-type TodoState = {
-  todos: Todo[]
-}
+// type TodoState = {
+//   todos: Todo[]
+// }
 
 type TodoAction = {
   todo: Todo

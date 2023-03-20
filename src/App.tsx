@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import Buttons from './component/Buttons';
+import Counter from './features/counter/Counter';
 import Header from './component/Header';
 import EditTaskModal from './component/EditTaskModal';
 import Todos from './component/Todos';
@@ -9,8 +10,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      <Counter />
       <Header />
-      <EditTaskModal />
+      {/* <EditTaskModal /> */}
 
       <header className="App-header">
         {/* <h1 style={{ textAlign: 'left' }}>ToDo !!</h1> */}

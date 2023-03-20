@@ -2,6 +2,9 @@ import * as actionTypes from '../store/actionTypes'
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState, AppThunk } from '../app/store'
 // import { fetchCount } from './counterAPI'
+export interface TodoState {
+  todos: Todo[]
+}
 
 const initialState: TodoState = {
   todos: [
@@ -37,12 +40,14 @@ export const todoSlice = createSlice({
   initialState,
   reducers: {
     addTodo: (state) => {
-      state.todos.concat({
+      console.log('addTodo', state)
+      state.todos.push({
         id: Math.random(), // not really unique
         content: 'test!!!',
         datetime: '2023-03-15',
         completed: false,
       })
+      console.log('added', state)
     },
     deleteTodo: (state) => {
       state.todos.filter((todo) => todo.id !== 1)
@@ -51,6 +56,8 @@ export const todoSlice = createSlice({
 })
 
 export const { addTodo, deleteTodo } = todoSlice.actions
+
+export const selectTodos = (state: RootState) => state.todo.todos
 
 export default todoSlice.reducer
 
