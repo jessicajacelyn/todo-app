@@ -1,8 +1,7 @@
 import { CheckCircleIcon, HandThumbUpIcon, UserIcon, PlusIcon } from '@heroicons/react/20/solid'
 import { useAppSelector, useAppDispatch } from '../app/hooks';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addTodo, deleteTodo, selectTodos } from '../component/todoSlice';
+import { addTodo, deleteTodo, selectTodos, moveToCompleted } from '../component/todoSlice';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -25,7 +24,7 @@ export default function Todos() {
                     'h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white'
                   >
                     <CheckCircleIcon
-                      onClick={() => console.log('clicked')}
+                      onClick={() => dispatch(moveToCompleted(event.id))}
                       className="h-5 w-5 text-gray-500 group-hover:text-cyan-600" aria-hidden="true" />
                   </span>
                 </div>

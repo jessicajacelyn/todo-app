@@ -1,10 +1,6 @@
 import * as actionTypes from '../store/actionTypes'
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState, AppThunk } from '../app/store'
-// import { fetchCount } from './counterAPI'
-export interface TodoState {
-  todos: Todo[]
-}
 
 const initialState: TodoState = {
   todos: [
@@ -33,6 +29,7 @@ const initialState: TodoState = {
       completed: false,
     },
   ],
+  completed: [],
 }
 
 export const todoSlice = createSlice({
@@ -55,10 +52,19 @@ export const todoSlice = createSlice({
       state.todos = updateTodos
       console.log('deleted', state)
     },
+    moveToCompleted: (state, action: PayloadAction<number>) => {
+      console.log('moveToCompleted', action.payload)
+      const t: Todo = state.todos.find((todo) => todo.id === action.payload) as Todo
+      t.completed = true
+      const updateTodos: Todo[] = state.todos.filter((todo) => todo.id !== action.payload)
+      state.todos = updateTodos
+      state.completed.push(t)
+      console.log('moved', state)
+    },
   },
 })
 
-export const { addTodo, deleteTodo } = todoSlice.actions
+export const { addTodo, deleteTodo, moveToCompleted } = todoSlice.actions
 
 export const selectTodos = (state: RootState) => state.todo.todos
 
