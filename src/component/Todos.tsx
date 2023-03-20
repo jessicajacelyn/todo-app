@@ -1,6 +1,8 @@
 import { CheckCircleIcon, HandThumbUpIcon, UserIcon, PlusIcon } from '@heroicons/react/20/solid'
+import { useAppSelector, useAppDispatch } from '../app/hooks';
 import React, { useState } from 'react';
-
+import { useDispatch } from 'react-redux';
+import { addTodo, deleteTodo } from '../component/todoSlice';
 const timeline = [
   {
     id: 1,
@@ -32,16 +34,25 @@ const timeline = [
   },
 
 ]
+type props = {
+  todo: Todo
+  removeTodo: (id: number) => void
+}
+
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function Todos() {
+  const dispatch = useAppDispatch();
+  const todos = useAppSelector((state) => state.todo);
+
   return (
     <div className="flow-root">
       <ul role="list" className="divide-y divide-gray-200">
-        {timeline.map((event, eventIdx) => (
+        {todos.todos.map((event, eventIdx) => (
           <li className="py-4" key={event.id}>
             <div className="relative">
               <div className="relative flex space-x-3 group">
@@ -62,7 +73,7 @@ export default function Todos() {
                     </p>
                   </div>
                   <div className="whitespace-nowrap text-right text-sm text-gray-500">
-                    <time dateTime={event.datetime}>{event.date}</time>
+                    <time dateTime={event.datetime}>Tomorrow</time>
                   </div>
                 </div>
               </div>
