@@ -42,15 +42,18 @@ export const todoSlice = createSlice({
     addTodo: (state) => {
       console.log('addTodo', state)
       state.todos.push({
-        id: Math.random(), // not really unique
+        id: Math.floor(Math.random() * 100) + 1, // not really unique
         content: 'test!!!',
         datetime: '2023-03-15',
         completed: false,
       })
       console.log('added', state)
     },
-    deleteTodo: (state) => {
-      state.todos.filter((todo) => todo.id !== 1)
+    deleteTodo: (state, action: PayloadAction<number>) => {
+      console.log('deleteTodo', action.payload)
+      const updateTodos: Todo[] = state.todos.filter((todo) => todo.id !== action.payload)
+      state.todos = updateTodos
+      console.log('deleted', state)
     },
   },
 })

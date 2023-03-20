@@ -36,7 +36,8 @@ export default function Todos() {
                     </p>
                   </div>
                   <div className="whitespace-nowrap text-right text-sm text-gray-500">
-                    <time dateTime={event.datetime}>Tomorrow</time>
+                    <time dateTime={event.datetime}></time>
+                    <p onClick={() => dispatch(deleteTodo(event.id))} className="group-hover:text-rose-700">Delete</p>
                   </div>
                 </div>
               </div>
