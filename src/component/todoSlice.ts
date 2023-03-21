@@ -36,14 +36,15 @@ export const todoSlice = createSlice({
   name: 'todo',
   initialState,
   reducers: {
-    addTodo: (state) => {
+    addTodo: (state, action: PayloadAction<Todo>) => {
       console.log('addTodo', state)
-      state.todos.push({
-        id: Math.floor(Math.random() * 100) + 1, // not really unique
-        content: 'test!!!',
-        datetime: '2023-03-15',
-        completed: false,
-      })
+      // state.todos.push({
+      //   id: Math.floor(Math.random() * 100) + 1, // not really unique
+      //   content: 'test!!!',
+      //   datetime: '2023-03-15',
+      //   completed: false,
+      // })
+      state.todos.push(action.payload)
       console.log('added', state)
     },
     deleteTodo: (state, action: PayloadAction<number>) => {

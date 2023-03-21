@@ -10,33 +10,7 @@ import { selectCompleted } from './todoSlice';
 //   { name: 'Online', href: '#', current: false },
 //   { name: 'Offline', href: '#', current: false },
 // ]
-const team = [
-  {
-    name: 'Leslie Alexander',
-    handle: 'lesliealexander',
-    href: '#',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    status: 'online',
-  },
-  {
-    name: 'Leslie Alexander',
-    handle: 'lesliealexander',
-    href: '#',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    status: 'online',
-  },
-  {
-    name: 'Leslie Alexander',
-    handle: 'lesliealexander',
-    href: '#',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    status: 'online',
-  },
-  // More people...
-]
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
