@@ -68,6 +68,8 @@ export const { addTodo, deleteTodo, moveToCompleted } = todoSlice.actions
 
 export const selectTodos = (state: RootState) => state.todo.todos
 
+export const selectCompleted = (state: RootState) => state.todo.completed
+
 export default todoSlice.reducer
 
 // const reducer = (state: TodoState = initialState, action: TodoAction): TodoState => {

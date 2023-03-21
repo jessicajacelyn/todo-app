@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import Buttons from './component/Buttons';
 import Counter from './features/counter/Counter';
 import Header from './component/Header';
-import EditTaskModal from './component/EditTaskModal';
 import Todos from './component/Todos';
 import './App.css';
 
@@ -11,9 +10,9 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* <EditTaskModal /> */}
 
       <header className="App-header">
+
         {/* <h1 style={{ textAlign: 'left' }}>ToDo !!</h1> */}
 
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
