@@ -2,6 +2,7 @@ import { CheckCircleIcon, HandThumbUpIcon, UserIcon, PlusIcon } from '@heroicons
 import { useAppSelector, useAppDispatch } from '../app/hooks';
 import React, { useState } from 'react';
 import { addTodo, deleteTodo, selectTodos, moveToCompleted } from '../component/todoSlice';
+import AddTodo from './AddTodo';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -10,6 +11,7 @@ function classNames(...classes) {
 export default function Todos() {
   const dispatch = useAppDispatch();
   const todos = useAppSelector(selectTodos);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className="flow-root">
@@ -51,11 +53,10 @@ export default function Todos() {
                 'h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white'
               >
                 <PlusIcon
-                  onClick={() => console.log('clicked')}
                   className="h-5 w-5 text-gray-500 group-hover:text-cyan-600" aria-hidden="true" />
               </span>
               <div className="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
-                <div onClick={() => dispatch(addTodo())}>
+                <div onClick={() => setShowModal(true)}>
                   <p className="text-sm text-gray-900 group-hover:text-cyan-600" style={{ marginRight: '100px' }}>
                     Add Task
                   </p>
@@ -63,6 +64,7 @@ export default function Todos() {
               </div>
             </div>
           </div>
+          {showModal && <AddTodo handleClose={() => setShowModal(false)} />}
         </div>
       </ul >
     </div >
